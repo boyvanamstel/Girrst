@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="title" content="Girrst">
+  <meta name="description" content="Create an RSS feed out of your GitHub Gists">
+  <meta name="author" content="Boy van Amstel">
+
+  <title>Girrst - Creates an RSS feed out of your GitHub Gists</title>
+
+  <link rel="stylesheet" href="css/style.css"> 
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery.watermark.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Handle form
+      $('form').submit(function(e) {
+        var username = $('#form_username').val();
+        if(username != '') {
+          window.location = '/user/' + username;
+        }
+        e.preventDefault();
+      });
+      
+      // Initialize watermarks
+      $(':input[placeholder]').each(function() {
+        var text = $(this).attr('placeholder');
+        $(this).watermark(text, {className: 'placeholding'});
+      });
+      
+    });
+  </script>
+  
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7720147-14']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+  
+  <link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+  
+</head>
+<body>
+<div id="wrapper">
+  <div id="header">
+    <h1>Girrst</h1>
+    <p><strong>Share your GitHub Gists</strong> easily with your co-workers/friends/mom!</p>
+    <p>Girrst converts your public Gists into <strong>a conventional RSS feed</strong> (awesome!), so you can share it or put it on your blog, Google Reader, whatever!</p>
+  </div>
+  <div id="form">
+    <h2>Start here!</h2>
+    <form method="post" action="#">
+      <fieldset>
+        <input id="form_username" type="text" name="username" placeholder="Your GitHub username">
+        <input id="form_submit" type="submit" value="Get my feed!" name="form_submit">
+      </fieldset>
+    </form>
+  </div>
+  <div id="share">
+    <h2>Share!</h2>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>  
+    <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fgirrst.appspot.com&amp;layout=button_count&amp;show_faces=true&amp;width=450&amp;action=like&amp;font&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:150px; height:21px;" allowTransparency="true"></iframe>
+  </div>
+  <div id="footer">
+    Created with spare time by <a href="http://boyvanamstel.nl">Boy van Amstel</a>. Follow me on Twitter: <a href="http://twitter.com/boyvanamstel">@boyvanamstel</a>.
+  </div>
+</div>
+</body>
+</html>
